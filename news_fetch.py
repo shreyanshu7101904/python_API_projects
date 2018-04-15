@@ -13,13 +13,10 @@ print(fname)
 
 
 def fetch_news(query,fname):
-    # BBC news api
-    # main_url = " https://newsapi.org/v1/articles?source=bbc-news&sortBy=top&apiKey=4c06371c000b4c52bb6b4520334dafc6"
-    # main_url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=4c06371c000b4c52bb6b4520334dafc6"
+
     main_url = "https://newsapi.org/v2/everything?q=" + query + \
                "&sortBy=publishedAt&apiKey=4c06371c000b4c52bb6b4520334dafc6"
-    # main_url = "https://newsapi.org/v2/top-headlines?sources=google-news-in&apiKey=4c06371c000b4c52bb6b4520334dafc6"
-    # fetching data in json format
+
     open_bbc_page = requests.get(main_url).json()
     key = open_bbc_page.keys()
     print(key)
@@ -58,21 +55,6 @@ def fetch_news(query,fname):
         print("\tNews   :", k)
         print("\tLink   :", l)
         count += 1
-        # print(i,"\t",j,"\t",k,"\t",l)
-    """    
-     sub_url = "http://www.bbc.co.uk/news/world-africa-43772363"
-    data_new = requests.get(sub_url).json()
-    print(data_new)
-    for i in range(len(results)):
-        # printing all trending news
-        print("*"*len(results[i]))
-        print(i + 1, results[i])
-
-sub_url = "http://www.bbc.co.uk/news/world-africa-43772363"
-data_new = requests.get(sub_url).json()
-print(data_new)
-"""
-
 
 if __name__ == '__main__':
     # function call
